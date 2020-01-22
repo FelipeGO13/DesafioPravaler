@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>SGIE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<nav id="nav">
+						<a href="/index">Home</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Three -->
+			<section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Cadastro de aluno</h2>
+						<p>Preencha as informações para cadastrar um aluno </p>
+					</header>
+							
+							<form method="POST" th:action="@{/cadastrarCurso}">
+										<div class="row uniform" style="margin-bottom: 20px;">
+											<div class="6u 12u$(medium)">
+												<input type="text" name="nome" id="nome" value=""  th:value="${curso.nome}" placeholder="Nome" style="margin-bottom: 20px;"/>
+											</div>
+											<div class="6u$ 12u$(xsmall)">
+												<input type="text" name="duracao" id="duracao" value=""  th:value="${curso.duracao}" placeholder="duracao" />
+											</div>
+										</div>
+										<label>Selecione uma instituição</label>
+										<div class="row uniform select-wrapper" style="margin-bottom: 20px;">
+										
+											<div class="6u$ 12u$(xsmall)">
+												<select th:object="${instituicaoId}" name="instituicaoId">
+												  <option th:each="instituicao : ${instituicoes}" 
+												          th:value="${instituicao.id}" 
+												          th:text="${instituicao.nome}"></option>
+												</select>
+												</div>
+										</div>
+											<div class="12u$">
+												<ul class="actions">
+													<li><input type="submit" value="Cadastrar" /></li>
+												</ul>
+											</div>
+										</div>
+							</form>					
+			
+				</div>
+			</section>
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/skel.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
+
+	</body>
+</html>

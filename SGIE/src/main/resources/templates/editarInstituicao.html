@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>SGIE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<nav id="nav">
+						<a href="/index">Home</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Three -->
+			<section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Cadastro de instituição</h2>
+						<p>Preencha as informações para editar uma instituição </p>
+						<p>Ao finalizar a edição a instituição é reativada</p>
+					</header>
+							
+							<form method="POST" th:action="@{/confirmarEdicaoInstituicao}">
+										<div class="row uniform" id="divForm">
+											<div class="6u 12u$(xsmall)">
+												<input type="text" name="nome" id="nome" th:value="${instituicao.nome}" placeholder="Nome" />
+											</div>
+											<div class="6u$ 12u$(xsmall)">
+												<input type="text" name="cnpj" id="cnpj" value=""  th:value="${instituicao.cnpj}" placeholder="CNPJ" />
+											</div>
+											<ul>
+											  <li id="curso" th:each="curso : ${instituicao.cursos}">
+											    <input type="checkbox" th:value="${curso.id}" checked/>
+											    <label 
+											           th:text="${curso.nome}"></label>
+											   
+											  </li>
+											</ul>
+												<input type="hidden" name="status" id="status" value=""  th:value="${instituicao.status}"  />
+												<input type="hidden" name="id" id="id" value=""  th:value="${instituicao.id}"  />
+													<input type="hidden" name="version" id="version" value=""  th:value="${instituicao.version}"  />
+											<div class="12u$">
+												<ul class="actions">
+													<li><input type="button" onclick="validaCursos();" value="Confirmar edição" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>					
+			
+				</div>
+			</section>
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/skel.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
+			<script>
+			function validaCursos(){
+				$('[type=checkbox]').each(function(){ 
+					if(this.checked){
+						$('#divForm').after('<input type="hidden" name="cursoId" value="'+this.value +'"/>');
+					}
+				});
+				$('form').submit();
+			}
+				
+			
+			</script>
+
+	</body>
+</html>

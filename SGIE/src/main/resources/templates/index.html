@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>SGIE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<nav id="nav">
+						<a href="/gestaoInstituicoes">Instituições</a>
+						<a href="/gestaoAlunos">Alunos</a>
+						<a href="/gestaoCursos">Cursos</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<header>
+						<h1>Seja bem-vindo ao portal IE</h1>
+					</header>
+
+					<div class="flex ">
+
+						<div>
+							<a id="linkInstituicoes" href="/gestaoInstituicoes">
+								<span class="icon fa-institution"></span>
+								<h3>Instituições</h3>
+								<p>Gerencia as instituições</p>
+							</a>
+						</div>
+
+						<div>
+							<a id="linkInstituicoes" href="/gestaoAlunos">
+								<span class="icon fa-users"></span>
+								<h3>Alunos</h3>
+								<p>Gerencie os alunos</p>
+							</a>
+						</div>
+
+						<div>
+							<a id="linkInstituicoes" href="/gestaoCursos">
+								<span class="icon fa-file"></span>
+								<h3>Cursos</h3>
+								<p>Gerencia os cursos</p>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/skel.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
+			<script>
+				function gerenciarInstituicoes(){
+					event.preventBubble=true; 
+					$('#linkInstituicoes').click();
+				}
+				
+				function gerenciarAlunos(){
+					console.log('alunos');
+				}
+				
+				function gerenciarAlunos(){
+					console.log('alunos');
+				}
+			
+			</script>
+
+	</body>
+</html>

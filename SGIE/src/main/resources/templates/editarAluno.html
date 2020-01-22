@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>SGIE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<nav id="nav">
+						<a href="/index">Home</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Three -->
+			<section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Cadastro de aluno</h2>
+						<p>Preencha as informações para cadastrar um aluno </p>
+					</header>
+							
+							<form method="POST" th:action="@{/confirmarEdicaoAluno}">
+										<div class="row uniform" style="margin-bottom: 20px;">
+											<div class="6u 12u$(medium)">
+												<input type="text" name="nome" id="nome" value=""  th:value="${aluno.nome}"  placeholder="Nome" style="margin-bottom: 20px;"/>
+													<input type="date" name="dataNascimento" id="dataNascimento" value=""  th:value="${aluno.dataNascimento}" placeholder="Data de Nascimento" />
+											</div>
+											<div class="6u$ 12u$(xsmall)">
+												<input type="text" name="cpf" id="cpf" value=""  th:value="${aluno.cpf}" placeholder="CPF" />
+											</div>
+										</div>
+										<div class="row uniform">
+											<div class="12u$(medium)">
+												<input type="text" name="celular" id="celular" value=""  th:value="${aluno.celular}" placeholder="celular" style="margin-bottom: 20px;"/>
+											</div>
+											<div class="6u$ 12u$(xsmall)">
+												<input type="email" name="email" id="email" value=""  th:value="${aluno.email}" placeholder="email" style="margin-bottom: 20px;"/>
+											</div>
+										</div>
+										<div class="row uniform" style="margin-bottom: 20px;">
+											<div class="6u 12u$(medium)">
+												<input type="text" name="endereco" id="endereco" value=""  th:value="${aluno.endereco}" placeholder="Endereço" style="margin-bottom: 20px;"/>
+												<input type="text" name="numero" id="numero" value=""  th:value="${aluno.numero}" placeholder="Número" />
+											</div>
+											<div class="6u$ 12u$(xsmall)">
+												<input type="text" name="bairro" id="bairro" value=""  th:value="${aluno.bairro}" placeholder="Bairro" />
+											</div>
+											<div class="6u 12u$(medium)">
+												<input type="text" name="cidade" id=""cidade"" value=""  th:value="${aluno.cidade}" placeholder="Cidade" />
+											</div>
+											<div class="6u$ 12u$(xsmall)">
+												<input type="text" name="uf" id="uf" value=""  th:value="${aluno.uf}" placeholder="UF" />
+											</div>
+											<input type="hidden" name="status" id="status" value=""  th:value="${aluno.status}"  />
+												<input type="hidden" name="id" id="id" value=""  th:value="${aluno.id}"  />
+															<input type="hidden" name="version" id="version" value=""  th:value="${aluno.version}"  />
+										</div>
+										<label>Selecione um curso</label>
+										<div class="row uniform select-wrapper" style="margin-bottom: 20px;">
+										
+											<div class="6u$ 12u$(xsmall)">
+												<select id="curso" th:object="${cursoId}" name="cursoId">
+												  <option th:each="curso : ${cursos}" 
+												          th:value="${curso.id}" 
+												          th:text="${curso.nome}"></option>
+												</select>
+												</div>
+										</div>
+											<div class="12u$">
+												<ul class="actions">
+													<li><input type="submit" value="Cadastrar" /></li>
+												</ul>
+											</div>
+										</div>
+							</form>					
+			
+				</div>
+			</section>
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/skel.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
+			<script> 
+			$(document).ready(function(){
+				debugger;
+				$('#curso').val([[${aluno.curso.id}]]).change();
+			});
+			
+			
+			</script>
+
+	</body>
+</html>

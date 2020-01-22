@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>SGIE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo"><strong>SGIE</strong></a>
+					<nav id="nav">
+						<a href="/indez">Home</a>
+						<a href="/gestaoInstituicoes">Instituições</a>
+						<a href="/gestaoCursos">Cursos</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Three -->
+			<section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Gestão de alunos</h2>
+						<p>Gerencie os alunos </p>
+					</header>
+					<div class="align-right" style="margin-bottom: 30px;">
+						<a href="/incluirAluno" class="button">+ Novo aluno</a>
+					</div>
+					<span th:text="${mensagem}"> </span>
+						<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>nome</th>
+													<th>cpf</th>
+													<th>status</th>
+													<th>curso</th>
+													<th>ações</th>
+												</tr>
+											</thead>
+											<tbody>
+											  <tr th:if="${alunos.empty}">
+											  	  <td colspan="2"> Nenhum aluno cadastrado </td>
+											  </tr>
+												<tr th:each="aluno : ${alunos}">
+							                    	<td th:text="${aluno.nome}"></td>
+							                    	<td th:text="${aluno.cpf}"></td>
+							                    	<td th:text="${aluno.status}"></td>
+							                    	<td th:text="${aluno.curso.nome}"></td>
+							                    	<td><a th:href="@{/editarAluno/{id}(id=${aluno.id})}">editar</a> <a th:href="@{/excluirAluno/{id}(id=${aluno.id})}">excluir</a></td>
+							                	</tr>
+											</tbody>
+										</table>
+									</div>
+				</div>
+			</section>
+
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/skel.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
+
+	</body>
+</html>
